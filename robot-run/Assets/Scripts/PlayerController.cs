@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_moveSpeed;
     [SerializeField] private float m_turnSpeed;
     [SerializeField] private float m_jumpSpeed;
+    [SerializeField] private InputManager _inputManager;
     
     private Animator m_robotAnim;
     private Rigidbody m_rb;
-    private Vector3 m_originalPosition; 
-    
+    private Vector3 m_originalPosition;
+
+    private float m_horizontal, m_vertical;
     
 
     

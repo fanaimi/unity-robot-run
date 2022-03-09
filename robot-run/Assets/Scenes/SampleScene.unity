@@ -47935,6 +47935,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5177401410495982743, guid: 51aaf1496a26d54408a7e6ff2d720a41, type: 3}
+      propertyPath: m_jumpSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177401410495982743, guid: 51aaf1496a26d54408a7e6ff2d720a41, type: 3}
+      propertyPath: m_moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177401410495982743, guid: 51aaf1496a26d54408a7e6ff2d720a41, type: 3}
+      propertyPath: m_turnSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177401410495982743, guid: 51aaf1496a26d54408a7e6ff2d720a41, type: 3}
+      propertyPath: _inputManager
+      value: 
+      objectReference: {fileID: 169251348}
     - target: {fileID: 5178222221050070445, guid: 51aaf1496a26d54408a7e6ff2d720a41, type: 3}
       propertyPath: m_Name
       value: robotSphere
