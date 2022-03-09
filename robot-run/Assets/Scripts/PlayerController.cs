@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private float m_horizontal, m_vertical;
     private bool m_jump;
+    private bool m_jumpimg;
     
 
     
@@ -74,9 +75,8 @@ public class PlayerController : MonoBehaviour
 
         if (m_jump)
         {
-            Debug.Log("space");
-            Jump();
-        }
+             Jump();
+        } 
     }
 
 
