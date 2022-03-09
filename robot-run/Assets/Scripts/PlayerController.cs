@@ -44,12 +44,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-       // Debug.Log(transform.position.y);
-        // Debug.Log("123");
-        // hamdling movements - Joystick magnitude > dead zone
-        // if (m_joystick.Direction.magnitude > m_deadZone)
-        if (m_horizontal > 0 || m_vertical > 0)
+        if (Mathf.Abs(m_horizontal) > 0 || Mathf.Abs(m_vertical) > 0 )
         {
             m_rb.AddForce(transform.forward * m_moveSpeed);
             m_robotAnim.SetBool("Walk_Anim", true);
@@ -77,15 +72,15 @@ public class PlayerController : MonoBehaviour
         
         transform.rotation = Quaternion.LookRotation(m_direction);
 
-
+        if (m_jump)
+        {
+            Jump();
+        }
     }
 
 
     public void Jump()
     {
-        //DebugManager.Instance.Echo("jump button was pressed");
-        
-        // DebugManager.Instance.Echo("jumping");
         m_rb.AddForce(transform.up * m_jumpSpeed, ForceMode.Impulse);
     }
 
