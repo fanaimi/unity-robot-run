@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_moveSpeed;
     [SerializeField] private float m_turnSpeed;
     [SerializeField] private float m_jumpSpeed;
-    [SerializeField] private InputManager _inputManager;
+    [SerializeField] private InputManager m_inputManager;
     
     private Animator m_robotAnim;
     private Rigidbody m_rb;
     private Vector3 m_originalPosition;
 
     private float m_horizontal, m_vertical;
+    private bool m_jump;
     
 
     
@@ -31,6 +33,12 @@ public class PlayerController : MonoBehaviour
         m_originalPosition = transform.position;
     }
 
+    private void Update()
+    {
+        m_horizontal = m_inputManager.m_horizontal;
+        m_vertical = m_inputManager.m_vertical;
+        m_jump = m_inputManager.m_jump;
+    }
 
 
     // Update is called once per frame
@@ -41,9 +49,8 @@ public class PlayerController : MonoBehaviour
         // Debug.Log("123");
         // hamdling movements - Joystick magnitude > dead zone
         // if (m_joystick.Direction.magnitude > m_deadZone)
-        if (true)
+        if (m_horizontal > 0 || m_vertical > 0)
         {
-            //Debug.Log(transform.position.y);
             m_rb.AddForce(transform.forward * m_moveSpeed);
             m_robotAnim.SetBool("Walk_Anim", true);
             AudioManager.instance.PlayOnce("robot-walk");
@@ -56,9 +63,9 @@ public class PlayerController : MonoBehaviour
 
         // handling rotation
         Vector3 m_targetDirection = new Vector3(
-            0, //m_joystick.Direction.x, 
+            m_horizontal, 
             0,
-            0 //m_joystick.Direction.y 
+            m_vertical
         );
 
         Vector3 m_direction = Vector3.RotateTowards(
