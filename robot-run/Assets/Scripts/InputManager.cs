@@ -22,7 +22,9 @@ public class InputManager : MonoBehaviour
     private void ListenToKeyboard () {
         m_vertical = Input.GetAxis ("Vertical");
         m_horizontal = Input.GetAxis ("Horizontal");
-        m_jump = (Input.GetAxis ("Jump") != 0) ? true : false;
+        // m_jump = (Input.GetAxis ("Jump") != 0) ? true : false;
+        if(Input.GetKeyDown(KeyCode.Space) ) m_jump = true;
+        
         /*if (Input.GetKey (KeyCode.LeftShift)) boosting = true;
         else boosting = false;*/
 

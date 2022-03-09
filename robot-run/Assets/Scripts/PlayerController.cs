@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
         if (m_jump)
         {
+            Debug.Log("space");
             Jump();
         }
     }
